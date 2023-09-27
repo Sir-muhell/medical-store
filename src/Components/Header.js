@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { SlWallet } from "react-icons/sl";
 import Logo from "../Assets/whiteLogo.png";
 import { FaBars, FaPowerOff, FaTimes } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import { GoHome } from "react-icons/go";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { MdOutlinePersonOutline } from "react-icons/md";
+import WalletState from "../utils/State";
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -16,6 +17,13 @@ export const Navbar = () => {
   const [colorChange, setColorchange] = useState(false);
   const [navLogo, setNavLogoChange] = useState(false);
   const [navMenuUp, setNavMenuUp] = useState(true);
+  const {
+    addCustomNetwork,
+    DisconnectWallet,
+    GetAccount,
+    connectWallet,
+    wallet
+  } = useContext(WalletState);
 
   return (
     <>
@@ -69,7 +77,20 @@ export const Navbar = () => {
         <div className="col-span-3 lg:col-span-1 m-auto">
           <button className="inline-flex item-center transition lg:bg-primary bg-white ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 rounded-lg px-4  lg:px-10 py-3 text-base text-primary  lg:text-white shadow-sm">
             <SlWallet className="text-center text-secondary" />
-            <span className="ml-3">Connect Wallet</span>
+            <span
+              className="ml-3"
+              onClick={() => {
+                wallet?.walletAddress ? DisconnectWallet() : connectWallet();
+              }}
+            >
+              {" "}
+              {wallet?.walletAddress?.length > 2
+                ? `${wallet.walletAddress.substr(
+                    0,
+                    8
+                  )}...${wallet.walletAddress.substr(-8, 8)}`
+                : "connect wallet"}
+            </span>
           </button>
         </div>
         <div className="col-span-1 lg:hidden block m-auto">
