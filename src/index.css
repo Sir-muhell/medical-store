@@ -1,13 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Noto Sans", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (min-width: 800px) {
+  .sidebar {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    display: block !important;
+    background-color: #9900cc;
+  }
+
+  .navbar {
+    height: 141px;
+    width: 80% !important;
+    float: right;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  display: none;
+  height: 100%;
+  background-color: #9900cc;
+}
+
+.navbar {
+  height: 141px;
+  width: 100%;
+}
+
+.logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-icon {
+  font-size: 50px;
+  color: #eaa801 !important;
+}
+
+.icon {
+  font-size: 30px;
+}
+@media screen and (min-width: 800px) {
+  .home {
+    width: 80% !important;
+    float: right;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sm-bg {
+    background: url("./Assets/login.svg");
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+
+  .sm-card {
+    background-color: white;
+  }
+
+  .cart-head {
+    font-size: 10px;
+  }
+}
+
+.NavbarItems {
+  position: relative;
+}
+
+.nav-menu {
+  display: hidden;
+  flex-direction: column;
+  position: absolute;
+  top: 100px;
+  left: 100%;
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.nav-menu.active {
+  position: absolute;
+  float: right;
+  opacity: 1;
+  transition: all 0.3s ease;
+  z-index: 2;
+  padding: 10px 20px 10px 10px;
+  max-width: 35%;
+  left: 55%;
+  right: 10px;
+  border-radius: 10px;
+}
+
+.triangle {
+  transition: all 0.3s ease;
+  position: absolute;
+  top: -13px;
+  right: 14px;
+}
+.home {
+  width: 100%;
+  float: right;
+}
+
+.home-head {
+  color: #000;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.home-sub {
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.switch-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-card {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 60px;
+  height: 54px;
+  flex-shrink: 0;
+  padding: 3px;
+  display: block;
+  justify-content: center;
+}
+
+.switch-card .icon {
+  font-size: 20px;
+  margin: 5px auto;
+}
+
+.switch-card p {
+  font-size: 10px;
+  text-align: center;
+}
+
+.line {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  width: 100% !important;
+  position: absolute;
+  top: 138px;
+}
+
+.form-head {
+  color: #000;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.form-sub {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.redirect {
+  font-family: Noto Sans;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.item-card {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f2f2f2;
+  max-width: 1000px;
+}
+
+.item-img-card {
+  height: 150px;
+}
+
+.item-img-card img {
+  height: 120px !important;
+  width: auto;
+  margin: 20px auto;
+}
+
+.card-text {
+  color: #000;
+  text-align: center;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.profile-box {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.cart {
+  background: rgba(217, 217, 217, 0.34);
+}
+
+.bordered-input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
